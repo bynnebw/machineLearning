@@ -46,8 +46,14 @@ y = df['MEDV'].values
 StandardScaler_x = StandardScaler()
 StandardScaler_y = StandardScaler()
 
+# y_Standard has something wrong in the video class, I change it by using the line y.reshape(-1,1).
+# Because the y is a vector
+
 X_Standard = StandardScaler_x.fit_transform(X)
 y_Standard = StandardScaler_y.fit_transform(y.reshape(-1,1))
+
+
+# After using the y.reshape, model.fit's trying to use ravel() method.
 
 model = LinearRegressionByMySelf()
 model.fit(X_Standard, y_Standard.ravel())
