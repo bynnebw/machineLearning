@@ -63,3 +63,13 @@ plt.ylabel('SSE')
 plt.xlabel('Epoch')
 
 plt.show()
+
+def Regression_plot(X,y,model):
+    plt.scatter(X, y, c='blue')
+    plt.plot(X, model.predict(X), color='red')
+    return None
+
+Regression_plot(X_Standard, y_Standard, model)
+plt.xlabel('Percentage of the population')
+plt.ylabel('House price')
+plt.show()
